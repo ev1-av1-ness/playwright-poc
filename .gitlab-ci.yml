@@ -1,0 +1,136 @@
+# посмотреть на устройство фронтовых запусков
+# хочется, наверное, вот как раз разделять регресс и смоук и не запутаться при этом в контейнерах
+
+default:
+  image: docker
+  services:
+    - docker
+
+  before_script:
+    - export IMAGE_TAG=$(echo $CI_COMMIT_REF_NAME | cut -d'/' -f1)
+
+stages:
+  - build-container #для каждого прогона свой? как лучше?
+  - smoke-ci
+  - regress-ci
+
+variables:
+  stackName: "autotest"
+
+build-container:
+  stage: build-container
+  script:
+    - docker login --username ${CI_REGISTRY_USER} --password ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}
+    - date
+    - docker build --tag ${CI_REGISTRY_IMAGE}/имя:latest --build-arg BASE_IMAGE=${CI_REGISTRY_IMAGE}/имя:latest --file ci/Dockerfile.имя .
+    - docker push ${CI_REGISTRY_IMAGE}/имя:latest
+    - docker rmi ${CI_REGISTRY_IMAGE}/имя:latest
+  tags:
+    - qa-docker
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: manual
+      allow_failure: true
+    - when: never
+
+
+ci-smoke:
+  image: ${CI_REGISTRY}/:${IMAGE_TAG}
+  stage: ci-smoke
+  variables:
+    IMAGE_TAG: ${CI_COMMIT_REF_NAME}
+    AUTOTESTS_JOB_URL: ${CI_JOB_URL}
+    AUTOTESTS_JOB_ID: ${CI_JOB_ID}
+    BROWSER: ##не знаю, что здесь указать ((
+    ALLURE_LAUNCH_NAME: "Имя проекта в аллюре:${CI_PIPELINE_ID}/${CI_JOB_ID}"
+    ALLURE_LAUNCH_TAGS: "${CI_COMMIT_BRANCH}, base"
+  script:
+    - date
+    - mkdir -p ${CI_PROJECT_DIR}/DirWithImages
+    - curl -s ##качаем картинки для тестов в папку DirWithImages
+    - export DBRANCHNAME=${RUN_BRANCHNAME:-${envName}} ##тестовое окружение
+    - mkdir -p ${CI_PROJECT_DIR}/TestScreenshots
+    - pwd
+    - ## нужен какой-нибудь sh скрипт наверное для запуска
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: always
+    - if: '$startFromAllure == "true"'
+      when: always
+    - when: never
+  dependencies: []
+  after_script:
+    - echo Allure report upload
+    - encode=`echo '[{"id":"name","type":"string","value":"'${CI_JOB_ID}'"}]' | base64`
+    - echo https://testops.111.com/project/launches?search=$encode
+    - allurectl upload /code/target/allure-results --job-run-uid "${ALLURE_LAUNCH_NAME}"
+  tags:
+    - qa-docker
+  artifacts:
+    name: "TestScreenshots"
+    paths:
+      - ${CI_PROJECT_DIR}/TestScreenshots/
+    expire_in: 2 days
+    when: always
+
+
+ci-regression:
+  image: ${CI_REGISTRY}/:${IMAGE_TAG}
+  stage: ci-regression
+  variables:
+    IMAGE_TAG: ${CI_COMMIT_REF_NAME}
+    AUTOTESTS_JOB_URL: ${CI_JOB_URL}
+    AUTOTESTS_JOB_ID: ${CI_JOB_ID}
+    BROWSER: ##не знаю, что здесь указать ((
+    ALLURE_LAUNCH_NAME: "Имя проекта в аллюре:${CI_PIPELINE_ID}/${CI_JOB_ID}"
+    ALLURE_LAUNCH_TAGS: "${CI_COMMIT_BRANCH}, base"
+  script:
+    - date
+    - mkdir -p ${CI_PROJECT_DIR}/DirWithImages
+    - curl -s ##качаем картинки для тестов в папку DirWithImages
+    - export DBRANCHNAME=${RUN_BRANCHNAME:-${envName}} ##тестовое окружение
+    - mkdir -p ${CI_PROJECT_DIR}/TestScreenshots
+    - pwd
+    - ## нужен какой-нибудь sh скрипт наверное для запуска
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: always
+    - if: '$startFromAllure == "true"'
+      when: always
+    - when: never
+  dependencies: []
+  after_script:
+    - echo Allure report upload
+    - encode=`echo '[{"id":"name","type":"string","value":"'${CI_JOB_ID}'"}]' | base64`
+    - echo https://testops.111.com/project/launches?search=$encode
+    - allurectl upload /code/target/allure-results --job-run-uid "${ALLURE_LAUNCH_NAME}"
+  tags:
+    - qa-docker
+  artifacts:
+    name: "TestScreenshots"
+    paths:
+      - ${CI_PROJECT_DIR}/TestScreenshots/
+    expire_in: 2 days
+    when: always
+
+
+##ниже просто пример для GitHub Actions с ютуба
+    #on: [push]
+    #jobs:
+    #run_tests:
+      #runs-on: ubuntu-latest
+      #steps:
+      #-uses: actions/checkout@v2
+      #-uses: actions/setup-node@v2
+      #-run: npm ci
+      #-run: npm playwright install --with-deps
+      #-run: npm run (название команды из package.json)
+      #-uses:actions/upload-artifact@v2
+      #if: always()
+      #with:
+      #name: test-results
+      #path: test-results
