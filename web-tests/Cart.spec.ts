@@ -3,7 +3,7 @@ import * as assert from "assert";
 import { CartPage } from '../pages/cart-page';
 import { testConfig } from '../testConfig';
 
-//залогиненность + проверка залогиненности
+//хочется залогиниться, а потом проверить, что залогинился
 
 // test('ui using request', async ({ page }) => {
 //     await page.request.post(`https://${testConfig[process.env.ENV]}`, {
