@@ -1,0 +1,4 @@
+await Promise.all([
+    page.waitForNavigation ({url:''}), //на странице
+    page.click('')
+]);

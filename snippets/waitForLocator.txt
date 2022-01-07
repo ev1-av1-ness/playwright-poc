@@ -1,0 +1,2 @@
+await page.waitForLocator('selector')
+await page.click('selector')

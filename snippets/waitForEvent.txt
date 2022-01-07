@@ -1,0 +1,5 @@
+const [download] = 
+await Promise.all([
+    page.waitForEvent('download'),
+    page.click('')
+]);
