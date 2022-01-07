@@ -4,7 +4,7 @@ import { MainPage } from '../pages/main-page';
 
 //test.describe.serial('use the same page', () => { // Это Feature
 
-test.describe('Authorization', () => { //Это Feature
+test.describe.parallel('Authorization', () => { //Это Feature
 
   /** Scenario:
    *

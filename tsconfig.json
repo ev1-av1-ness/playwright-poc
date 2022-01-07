@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+    //   "lib": [],
+      "strict": true,
+      "module": "commonjs",
+      "noEmit": true,
+      "removeComments": true,
+      "strictNullChecks": false,
+      "noImplicitAny": false,
+    }
+}
