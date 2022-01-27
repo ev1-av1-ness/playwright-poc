@@ -13,12 +13,32 @@ test.describe.parallel('Authorization', () => { //Это Feature
 
   //Хороший вопрос, как сюда пробросить подобные аннотации аллюра?
   //@Test
+  
+  
   //@AllureId("")
   //@DisplayName("")
+  
+  //allure-js//
+  
+  
   //@Step("") - но в обычный аллюр репорт прокидывается обычный шаг из test.step(`Открыть главную страницу`, async () 
 
 
   //адекватные ли beforeAll/beforeEach/afterEach/afterAll ?
+
+
+  // test.beforeEach(async ({ context, browser }, testInfo) => {
+  //   context = await browser.newContext();
+  //   console.log(Running ${testInfo.title});
+  // });
+
+  // test.afterEach(async ({ page, context }, testInfo) => {
+  //   await context.close();
+  //   console.log(Finished ${testInfo.title} with status ${testInfo.status});
+
+  //   if (testInfo.status !== testInfo.expectedStatus)
+  //     console.log(Did not run as expected, ended up at ${page.url()});
+  // });
 
 
   let page: Page;
@@ -26,7 +46,7 @@ test.describe.parallel('Authorization', () => { //Это Feature
   test.beforeAll(async ({ browser }) => {
     console.log('Page opened before tests');
     page = await browser.newPage();
-  });
+  }); //лишнее
 
   test.beforeEach(async ({ page }, testInfo) => {
     console.log(`Running ${testInfo.title}`);

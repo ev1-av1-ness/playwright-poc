@@ -24,6 +24,16 @@ async function globalSetup() {
   await requestContext.dispose();
 }
 
+//response.
+//browser.headers//
+
+
+//beforeAll(()).
+//page.setextraHTTPSHeaders
+
+
+//
+
 //здесь всякие нужные юзеры
 
 async function signIn() {

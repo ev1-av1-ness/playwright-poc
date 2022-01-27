@@ -1,11 +1,11 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
 import { testConfig } from './testConfig';
-const ENV = process.env.ENV;
+// const ENV = process.env.ENV;
 
-if (!ENV || ![`auto`, `dev`, `devanother`, `localhost`].includes(ENV)) {
-  console.log(`Please provide a correct environment value like "npx cross-env ENV=auto|dev|devanother|localhost"`);
-  process.exit();
-}
+// if (!ENV || ![`auto`, `dev`, `devanother`, `localhost`].includes(ENV)) {
+//   console.log(`Please provide a correct environment value like "npx cross-env ENV=auto|dev|devanother|localhost"`);
+//   process.exit();
+// }
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -44,7 +44,7 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['junit', { outputFile: 'junit.xml' }],
-    ['html', { open: 'never' }],
+    // ['html', { open: 'never' }],
     ['allure-playwright'],
     ['list']
   ],
@@ -55,7 +55,7 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 0,
 
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: testConfig[process.env.ENV],
+    baseURL: `https://${process.env.URL}.subdomen.com`,
 
     /* Collect trace. See https://playwright.dev/docs/trace-viewer */
     viewport: { width: 1280, height: 720 },

@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "web": "ENV=auto npx playwright test",
-    "mweb": "ENV=auto npx playwright test --config=mobile.config.ts",
+    "web": "URL=auto playwright test --config=playwright.config.ts",
+    "mweb": "URL=auto playwright test --config=mobile.config.ts",
     "ci-smoke": "yarn mweb --project=iOS && yarn web --project=Chrome",
     "ci-regression": "yarn web --project=firefox && yarn web --project=webkit && yarn mweb --project=Android",
-    "allure:serve": "npx allure serve",
+    "allure:serve": "allure serve",
     "report": "allure generate ./allure-results --clean && allure open ./allure-report"
   },
   "keywords": [],

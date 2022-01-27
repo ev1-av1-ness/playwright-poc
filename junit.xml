@@ -1,0 +1,215 @@
+<testsuites id="" name="" tests="3" failures="3" skipped="0" errors="0" time="8.876">
+<testsuite name="Authorization.spec.ts" timestamp="1642011339011" hostname="" tests="1" failures="1" skipped="0" time="2.26" errors="0">
+<testcase name="Authorization Test for format caption in registration on main page" classname="[firefox] › Authorization.spec.ts:61:3 › Authorization › Test for format caption in registration on main page" time="2.26">
+<failure message="Authorization.spec.ts:61:3 Test for format caption in registration on main page" type="FAILURE">
+  [firefox] › Authorization.spec.ts:61:3 › Authorization › Test for format caption in registration on main page 
+
+    page.goto: NS_ERROR_CONNECTION_REFUSED
+    =========================== logs ===========================
+    navigating to "https://auto.subdomen.com/undefined", waiting until "load"
+    ============================================================
+
+      68 |
+      69 |     await test.step(`Открыть главную страницу`, async () => {
+    > 70 |       await mainPage.goto();
+         |                      ^
+      71 |     });
+      72 |     await test.step(`Открыть форму регистрации и логина`, async () => {
+      73 |       await mainPage.openSignUpForm();
+
+        at MainPage.goto (/Users/b/Downloads/playwright-poc GitHub/pages/main-page.ts:15:25)
+        at /Users/b/Downloads/playwright-poc GitHub/web-tests/Authorization.spec.ts:70:22
+        at TestTypeImpl._step (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/testType.js:214:13)
+        at Function.step (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/transform.js:133:12)
+        at /Users/b/Downloads/playwright-poc GitHub/web-tests/Authorization.spec.ts:69:16
+        at FixtureRunner.resolveParametersAndRunHookOrTest (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/fixtures.js:306:12)
+        at WorkerRunner._runTestWithBeforeHooks (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/workerRunner.js:499:7)
+
+    attachment #1: trace (application/zip) ---------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/trace.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #2: screenshot (image/png) ----------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/test-failed-1.png
+    ------------------------------------------------------------------------------------------------
+
+    attachment #3: trace (application/zip) ---------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/trace-1.zip
+    Usage:
+
+        npx playwright show-trace test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/trace-1.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #4: screenshot (image/png) ----------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/test-failed-2.png
+    ------------------------------------------------------------------------------------------------
+
+</failure>
+<system-out>
+Running Test for format caption in registration on main page
+Finished Test for format caption in registration on main page with status failed
+Did not run as expected, ended up at about:blank
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/trace.zip]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/trace-1.zip]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-firefox/test-failed-2.png]]
+
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="Authorization.spec.ts" timestamp="1642011339011" hostname="" tests="1" failures="1" skipped="0" time="2.86" errors="0">
+<testcase name="Authorization Test for format caption in registration on main page" classname="[webkit] › Authorization.spec.ts:61:3 › Authorization › Test for format caption in registration on main page" time="2.86">
+<failure message="Authorization.spec.ts:61:3 Test for format caption in registration on main page" type="FAILURE">
+  [webkit] › Authorization.spec.ts:61:3 › Authorization › Test for format caption in registration on main page 
+
+    page.goto: Could not connect to the server.
+    =========================== logs ===========================
+    navigating to "https://auto.subdomen.com/undefined", waiting until "load"
+    ============================================================
+
+      68 |
+      69 |     await test.step(`Открыть главную страницу`, async () => {
+    > 70 |       await mainPage.goto();
+         |                      ^
+      71 |     });
+      72 |     await test.step(`Открыть форму регистрации и логина`, async () => {
+      73 |       await mainPage.openSignUpForm();
+
+        at MainPage.goto (/Users/b/Downloads/playwright-poc GitHub/pages/main-page.ts:15:25)
+        at /Users/b/Downloads/playwright-poc GitHub/web-tests/Authorization.spec.ts:70:22
+        at TestTypeImpl._step (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/testType.js:214:13)
+        at Function.step (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/transform.js:133:12)
+        at /Users/b/Downloads/playwright-poc GitHub/web-tests/Authorization.spec.ts:69:16
+        at FixtureRunner.resolveParametersAndRunHookOrTest (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/fixtures.js:306:12)
+        at WorkerRunner._runTestWithBeforeHooks (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/workerRunner.js:499:7)
+
+    attachment #1: video (video/webm) --------------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/03931179006a28bd2c4a6bfb6787a81b.webm
+    ------------------------------------------------------------------------------------------------
+
+    attachment #2: trace (application/zip) ---------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/trace.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #3: screenshot (image/png) ----------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/test-failed-1.png
+    ------------------------------------------------------------------------------------------------
+
+    attachment #4: trace (application/zip) ---------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/trace-1.zip
+    Usage:
+
+        npx playwright show-trace test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/trace-1.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #5: screenshot (image/png) ----------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/test-failed-2.png
+    ------------------------------------------------------------------------------------------------
+
+</failure>
+<system-out>
+Running Test for format caption in registration on main page
+Finished Test for format caption in registration on main page with status failed
+Did not run as expected, ended up at about:blank
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/03931179006a28bd2c4a6bfb6787a81b.webm]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/trace.zip]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/trace-1.zip]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-webkit/test-failed-2.png]]
+
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="Authorization.spec.ts" timestamp="1642011339011" hostname="" tests="1" failures="1" skipped="0" time="2.45" errors="0">
+<testcase name="Authorization Test for format caption in registration on main page" classname="[Chrome] › Authorization.spec.ts:61:3 › Authorization › Test for format caption in registration on main page" time="2.45">
+<failure message="Authorization.spec.ts:61:3 Test for format caption in registration on main page" type="FAILURE">
+  [Chrome] › Authorization.spec.ts:61:3 › Authorization › Test for format caption in registration on main page 
+
+    page.goto: net::ERR_CONNECTION_REFUSED at https://auto.subdomen.com/undefined
+    =========================== logs ===========================
+    navigating to "https://auto.subdomen.com/undefined", waiting until "load"
+    ============================================================
+
+      68 |
+      69 |     await test.step(`Открыть главную страницу`, async () => {
+    > 70 |       await mainPage.goto();
+         |                      ^
+      71 |     });
+      72 |     await test.step(`Открыть форму регистрации и логина`, async () => {
+      73 |       await mainPage.openSignUpForm();
+
+        at MainPage.goto (/Users/b/Downloads/playwright-poc GitHub/pages/main-page.ts:15:25)
+        at /Users/b/Downloads/playwright-poc GitHub/web-tests/Authorization.spec.ts:70:22
+        at TestTypeImpl._step (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/testType.js:214:13)
+        at Function.step (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/transform.js:133:12)
+        at /Users/b/Downloads/playwright-poc GitHub/web-tests/Authorization.spec.ts:69:16
+        at FixtureRunner.resolveParametersAndRunHookOrTest (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/fixtures.js:306:12)
+        at WorkerRunner._runTestWithBeforeHooks (/Users/b/Downloads/playwright-poc GitHub/node_modules/@playwright/test/lib/workerRunner.js:499:7)
+
+    attachment #1: video (video/webm) --------------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/462c135998859edbb9b5558cebe9a424.webm
+    ------------------------------------------------------------------------------------------------
+
+    attachment #2: trace (application/zip) ---------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/trace.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #3: screenshot (image/png) ----------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/test-failed-1.png
+    ------------------------------------------------------------------------------------------------
+
+    attachment #4: trace (application/zip) ---------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/trace-1.zip
+    Usage:
+
+        npx playwright show-trace test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/trace-1.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #5: screenshot (image/png) ----------------------------------------------------------
+    test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/test-failed-2.png
+    ------------------------------------------------------------------------------------------------
+
+</failure>
+<system-out>
+Running Test for format caption in registration on main page
+Finished Test for format caption in registration on main page with status failed
+Did not run as expected, ended up at about:blank
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/462c135998859edbb9b5558cebe9a424.webm]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/trace.zip]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/trace-1.zip]]
+
+[[ATTACHMENT|../test-results/web/Authorization-Authorization-Test-for-format-caption-in-registration-on-main-page-Chrome/test-failed-2.png]]
+
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
